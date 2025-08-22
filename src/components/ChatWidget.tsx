@@ -21,7 +21,7 @@ export interface ChatWidgetProps {
 }
 
 export const ChatWidget: React.FC<ChatWidgetProps> = ({
-  webhookUrl = '',
+  webhookUrl = 'https://educhatco.app.n8n.cloud/webhook-test/1d12e1c4-39dd-48ee-8b42-a9eaf6b91267',
   botName = 'AI Assistant',
   welcomeMessage = "Hi! I'm here to help. What can I do for you today?",
   placeholder = "Type your message..."
