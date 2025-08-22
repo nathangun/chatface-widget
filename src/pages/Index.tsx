@@ -1,134 +1,182 @@
-import React, { useState } from 'react';
-import { ChatWidget, type Message } from '@/components/ChatWidget';
-import { WebhookConfig, type WebhookSettings } from '@/components/WebhookConfig';
+import React from 'react';
+import { ChatWidget } from '@/components/ChatWidget';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Bot, MessageSquare, Settings, Zap } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { 
+  Book, 
+  Search, 
+  Calendar, 
+  Users, 
+  Clock, 
+  BookOpen, 
+  GraduationCap, 
+  Library,
+  ArrowRight,
+  Star
+} from 'lucide-react';
 
 const Index = () => {
-  const [webhookSettings, setWebhookSettings] = useState<WebhookSettings>({
-    webhookUrl: '',
-    botName: 'AI Assistant',
-    welcomeMessage: "Hi! I'm here to help. What can I do for you today?",
-    placeholder: 'Type your message...'
-  });
-
-  const handleSaveSettings = (settings: WebhookSettings) => {
-    setWebhookSettings(settings);
-  };
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
       {/* Header */}
       <header className="border-b bg-chat-surface/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <Bot className="h-6 w-6 text-white" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <Library className="h-7 w-7 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold">UC Library</h1>
+                <p className="text-muted-foreground">University of California Digital Library</p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-2xl font-bold">AI Chat Widget</h1>
-              <p className="text-muted-foreground">Embeddable chatbot for any website</p>
+            <div className="flex items-center space-x-4">
+              <Badge variant="secondary" className="flex items-center space-x-1">
+                <Clock className="h-3 w-3" />
+                <span>Open 24/7</span>
+              </Badge>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Configuration Panel */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-2">
-              <Settings className="h-5 w-5" />
-              <h2 className="text-xl font-semibold">Configuration</h2>
-            </div>
-            <WebhookConfig 
-              onSave={handleSaveSettings}
-              initialSettings={webhookSettings}
-            />
-          </div>
-
-          {/* Features Overview */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-2">
-              <Zap className="h-5 w-5" />
-              <h2 className="text-xl font-semibold">Features</h2>
-            </div>
-            
-            <div className="grid gap-4">
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center space-x-2">
-                    <MessageSquare className="h-5 w-5" />
-                    <span>Widget Style</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Floating bottom-right position</li>
-                    <li>• Responsive design for all devices</li>
-                    <li>• Smooth animations and transitions</li>
-                    <li>• Customizable avatar and branding</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center space-x-2">
-                    <Bot className="h-5 w-5" />
-                    <span>AI Integration</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Webhook-based AI agent connection</li>
-                    <li>• Real-time message handling</li>
-                    <li>• Typing indicators and status</li>
-                    <li>• Error handling and retries</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg">Embed Code</CardTitle>
-                  <CardDescription>
-                    Use this iframe to embed the widget on any website
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="bg-muted p-3 rounded-md">
-                    <code className="text-xs break-all">
-                      {`<iframe src="${window.location.origin}" width="400" height="600" frameborder="0"></iframe>`}
-                    </code>
-                  </div>
-                  <div className="flex space-x-2 mt-3">
-                    <Badge variant="secondary">iframe Ready</Badge>
-                    <Badge variant="secondary">CORS Enabled</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="text-center space-y-6">
+          <h2 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            Welcome to UC Library
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Discover knowledge, research resources, and academic support at your fingertips
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-gradient-primary hover:opacity-90">
+              <Search className="h-5 w-5 mr-2" />
+              Search Catalog
+            </Button>
+            <Button variant="outline" size="lg">
+              <BookOpen className="h-5 w-5 mr-2" />
+              Digital Resources
+            </Button>
           </div>
         </div>
+      </section>
 
-        {/* Demo Instructions */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm">
-            <MessageSquare className="h-4 w-4" />
-            <span>Try the chat widget in the bottom-right corner!</span>
+      {/* Quick Stats */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <Card className="text-center">
+            <CardContent className="pt-6">
+              <Book className="h-8 w-8 text-primary mx-auto mb-2" />
+              <div className="text-2xl font-bold">2.5M+</div>
+              <p className="text-sm text-muted-foreground">Books & Publications</p>
+            </CardContent>
+          </Card>
+          <Card className="text-center">
+            <CardContent className="pt-6">
+              <GraduationCap className="h-8 w-8 text-primary mx-auto mb-2" />
+              <div className="text-2xl font-bold">50K+</div>
+              <p className="text-sm text-muted-foreground">Active Students</p>
+            </CardContent>
+          </Card>
+          <Card className="text-center">
+            <CardContent className="pt-6">
+              <Users className="h-8 w-8 text-primary mx-auto mb-2" />
+              <div className="text-2xl font-bold">24/7</div>
+              <p className="text-sm text-muted-foreground">Study Spaces</p>
+            </CardContent>
+          </Card>
+          <Card className="text-center">
+            <CardContent className="pt-6">
+              <Star className="h-8 w-8 text-primary mx-auto mb-2" />
+              <div className="text-2xl font-bold">Top 10</div>
+              <p className="text-sm text-muted-foreground">Academic Library</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h3 className="text-3xl font-bold mb-4">Library Services</h3>
+          <p className="text-muted-foreground">Everything you need for academic success</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Search className="h-5 w-5 text-primary" />
+                <span>Research Assistance</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                Get help from our expert librarians for your research projects and academic papers.
+              </p>
+              <Button variant="outline" size="sm">
+                Learn More <ArrowRight className="h-4 w-4 ml-1" />
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <BookOpen className="h-5 w-5 text-primary" />
+                <span>Digital Collections</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                Access millions of digital books, journals, and multimedia resources online.
+              </p>
+              <Button variant="outline" size="sm">
+                Explore <ArrowRight className="h-4 w-4 ml-1" />
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Calendar className="h-5 w-5 text-primary" />
+                <span>Study Rooms</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                Reserve private study rooms and collaborative spaces for group projects.
+              </p>
+              <Button variant="outline" size="sm">
+                Book Now <ArrowRight className="h-4 w-4 ml-1" />
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t bg-chat-surface/50 mt-16">
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-center">
+            <p className="text-muted-foreground">
+              © 2024 University of California Library. All rights reserved.
+            </p>
           </div>
         </div>
-      </main>
+      </footer>
 
       {/* Chat Widget */}
       <ChatWidget
-        webhookUrl={webhookSettings.webhookUrl}
-        botName={webhookSettings.botName}
-        welcomeMessage={webhookSettings.welcomeMessage}
-        placeholder={webhookSettings.placeholder}
+        webhookUrl="https://educhatco.app.n8n.cloud/webhook-test/1d12e1c4-39dd-48ee-8b42-a9eaf6b91267"
+        botName="UC Library Assistant"
+        welcomeMessage="Hi! I'm your UC Library assistant. How can I help you find resources today?"
+        placeholder="Ask about books, research, or library services..."
       />
     </div>
   );
