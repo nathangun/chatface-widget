@@ -67,7 +67,7 @@ export const WebhookConfig: React.FC<WebhookConfigProps> = ({
             id="webhook-url"
             value={settings.webhookUrl}
             onChange={(e) => setSettings(prev => ({ ...prev, webhookUrl: e.target.value }))}
-            placeholder="https://your-api.com/webhook"
+            placeholder="https://educhatco.app.n8n.cloud/webhook-test/179abee3-a2b7-464f-8ddb-9dd558a378e7"
             className={settings.webhookUrl && !isValidUrl(settings.webhookUrl) ? "border-destructive" : ""}
           />
           {settings.webhookUrl && !isValidUrl(settings.webhookUrl) && (
