@@ -30,7 +30,7 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-2xl font-bold">UC Library</h1>
-                <p className="text-muted-foreground">University of California Digital Library</p>
+                <p className="text-muted-foreground">Universitas Ciputra Library</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -165,7 +165,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-8">
           <div className="text-center">
             <p className="text-muted-foreground">
-              © 2024 University of California Library. All rights reserved.
+              © 2025 Universitas Ciputra Library. All rights reserved.
             </p>
           </div>
         </div>
