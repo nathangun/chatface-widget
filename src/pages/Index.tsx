@@ -173,7 +173,7 @@ const Index = () => {
 
       {/* Chat Widget */}
       <ChatWidget
-        webhookUrl="https://educhatco.app.n8n.cloud/webhook-test/1d12e1c4-39dd-48ee-8b42-a9eaf6b91267"
+        webhookUrl="https://educhatco.app.n8n.cloud/webhook-test/179abee3-a2b7-464f-8ddb-9dd558a378e7"
         botName="UC Library Assistant"
         welcomeMessage="Hi! I'm your UC Library assistant. How can I help you find resources today?"
         placeholder="Ask about books, research, or library services..."
